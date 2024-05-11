@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dppcp5gqm183o"]
+
+[ext_resource type="Texture2D" uid="uid://dside0p357tyd" path="res://assets/sprites/terrain-prototip.png" id="1_miefn"]
+[ext_resource type="PackedScene" uid="uid://c1w208ny88vfo" path="res://scenes/player.tscn" id="2_stafv"]
+
+[node name="LevelOne" type="Node2D"]
+
+[node name="Terrain" type="Sprite2D" parent="."]
+position = Vector2(640, 180)
+texture = ExtResource("1_miefn")
+
+[node name="Player" parent="." instance=ExtResource("2_stafv")]
+position = Vector2(37, 209)
