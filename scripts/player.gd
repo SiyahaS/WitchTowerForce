@@ -4,6 +4,7 @@ extends CharacterBody2D
 enum PLAYER_STATES
 {
 	Idle,
+	Move,
 	Basic_Attack,
 	Skill_Shot
 }
@@ -24,6 +25,10 @@ var stateManager = $PlayerStateManager
 
 @export
 var move_speed: float = 58
+@export
+var move_acceleration: float = 5.8
+@onready
+var move_direction: int = 0
 
 func _ready():
 	# Initialize the state manager, passing a referance of the player to the states
