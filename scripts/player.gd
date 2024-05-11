@@ -26,7 +26,7 @@ var stateManager = $PlayerStateManager
 @export
 var move_speed: float = 58
 @export
-var move_acceleration: float = 5.8
+var move_acceleration: float = 2
 @onready
 var move_direction: int = 0
 

@@ -11,7 +11,7 @@ func enter() -> void:
 	move_distance = parent.move_speed
 
 func process_physics(delta: float) -> PlayerState:
-	
+
 	if move_distance > 0:
 		parent.global_position.y += parent.move_acceleration * parent.move_direction
 		move_distance -= parent.move_acceleration
