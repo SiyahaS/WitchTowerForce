@@ -1,0 +1,317 @@
+[gd_scene load_steps=16 format=3 uid="uid://bm3sr6quoalkt"]
+
+[ext_resource type="Texture2D" uid="uid://dsmr8o1tt6yk2" path="res://icon.svg" id="1_ylft3"]
+[ext_resource type="Script" path="res://scripts/wave_counter.gd" id="2_usglb"]
+[ext_resource type="Script" path="res://scripts/skill_button.gd" id="3_0oget"]
+
+[sub_resource type="Gradient" id="Gradient_80uew"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.192157, 0.65098, 0.686275, 0.462745)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7dvga"]
+gradient = SubResource("Gradient_80uew")
+
+[sub_resource type="Gradient" id="Gradient_6ip84"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.855577, 0.115978, 0.322025, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tjm7v"]
+gradient = SubResource("Gradient_6ip84")
+
+[sub_resource type="Gradient" id="Gradient_jmcei"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.000714164, 0.206072, 0.725601, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jjoiq"]
+gradient = SubResource("Gradient_jmcei")
+
+[sub_resource type="Gradient" id="Gradient_cfi8s"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.319566, 0.553334, 0.890663, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e4iq4"]
+gradient = SubResource("Gradient_cfi8s")
+
+[sub_resource type="Gradient" id="Gradient_rth1q"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.235294, 0.235294, 0.235294, 0.584314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aaf4m"]
+gradient = SubResource("Gradient_rth1q")
+
+[sub_resource type="Gradient" id="Gradient_2juwa"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.851639, 0.458929, 0.275598, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d4hhv"]
+gradient = SubResource("Gradient_2juwa")
+
+[node name="ui" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="top_bar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 108.0
+grow_horizontal = 2
+
+[node name="background" type="TextureRect" parent="top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_7dvga")
+expand_mode = 2
+
+[node name="portrait" type="TextureRect" parent="top_bar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -32.0
+offset_right = 70.0
+offset_bottom = 32.0
+grow_vertical = 2
+texture = ExtResource("1_ylft3")
+expand_mode = 1
+
+[node name="wave_counter" type="Label" parent="top_bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -8.5
+offset_right = -42.0
+offset_bottom = 14.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Wave ###"
+script = ExtResource("2_usglb")
+
+[node name="player_nickname" type="Label" parent="top_bar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 79.0
+offset_top = -30.0
+offset_right = 179.0
+offset_bottom = -6.99999
+grow_vertical = 2
+text = "player_name
+"
+
+[node name="healthbar" type="TextureProgressBar" parent="top_bar"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 60.0
+offset_right = 228.0
+offset_bottom = 83.0
+value = 65.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_tjm7v")
+texture_progress = SubResource("GradientTexture1D_jjoiq")
+
+[node name="bottom_bar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="background" type="TextureRect" parent="bottom_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_e4iq4")
+
+[node name="skills" type="HBoxContainer" parent="bottom_bar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -24.0
+offset_right = -6.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="basic_attack" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 1
+
+[node name="fireball" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 2
+
+[node name="lightning" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 3
+
+[node name="meteor" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 4
+
+[node name="convert" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 5
+
+[node name="suprise" type="TextureButton" parent="bottom_bar/skills"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("1_ylft3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_0oget")
+skill_id = 6
+
+[node name="currency" type="Control" parent="bottom_bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="bottom_bar/currency"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+offset_left = 4.0
+offset_right = 52.0
+offset_bottom = 48.0
+texture = ExtResource("1_ylft3")
+expand_mode = 5
+
+[node name="count" type="Label" parent="bottom_bar/currency"]
+layout_mode = 2
+offset_left = 56.0
+offset_top = 12.0
+offset_right = 84.0
+offset_bottom = 35.0
+text = "x12"
+
+[node name="modal" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backdrop" type="TextureRect" parent="modal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_aaf4m")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="modal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="modal/CenterContainer"]
+custom_minimum_size = Vector2(320, 160)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_d4hhv")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="modal/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="modal/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="modal/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(320, 120)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="modal/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="modal/CenterContainer/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "asdasdasd"
+
+[node name="VSeparator" type="VSeparator" parent="modal/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="modal/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="modal/CenterContainer/VBoxContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "asdasdasd"
