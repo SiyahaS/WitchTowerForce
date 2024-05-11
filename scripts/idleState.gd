@@ -19,7 +19,7 @@ func process_input(event: InputEvent) -> PlayerState:
 		var movement = Input.get_axis('move-up', 'move-down')
 		parent.move_direction = movement
 		print(parent.global_position.y)
-		if parent.global_position.y < 254 and movement == 1:
+		if parent.global_position.y < 260 and movement == 1:
 			return move_state
 		elif parent.global_position.y >86 and movement == -1:
 			return move_state

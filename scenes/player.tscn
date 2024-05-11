@@ -293,6 +293,7 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_c7iqb")
 }
+autoplay = "Idle"
 speed_scale = 0.1
 
 [node name="Label" type="Label" parent="."]
